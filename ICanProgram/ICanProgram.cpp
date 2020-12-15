@@ -2,21 +2,40 @@
 //
 
 #include <iostream>
+#include <string>
+#include <stack>
+#include "card.h"
 
 using std::cout;
 using std::cin;
 
 int main()
 {
-    std::string input;
-    cout << "Type\n";
+
+    //cout << "Type\n";
     //cin >> input;
     //cout << "\n" << input;
-    enum value {Ace = 0, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King};
-    enum suit {Club= 0, Diamond, Heart, Spade};
 
-    for(int i = 0; i)
+    //value tester;
 
+    std::stack<card> deck;
+
+    for (int suit = 0; suit < 4; suit++)
+    {
+        for (int value = 0; value < 13; value++)
+        {
+            card cardTest(value, suit);
+            deck.push(cardTest);
+            //cout << value << " " << suit << "\n";
+            //cout << cardTest.translateValue() << " " << cardTest.translateSuit() << "\n";
+        }
+    }
+
+    for (int i = 0; i < 52; i++)
+    {
+        cout << deck.top().translateValue() << " " << deck.top().translateSuit() << "\n";
+        deck.pop();
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
