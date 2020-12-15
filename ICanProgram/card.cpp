@@ -8,56 +8,50 @@ card::card(int inValue, int inSuit)
 
 std::string card::translateValue()
 {
-    std::string cardValue;
-
     switch (value) {
-    case 0: cardValue = "Ace";
+    case 0: return("Ace");
         break;
-    case 1: cardValue = "Two";
+    case 1: return("Two");
         break;
-    case 2: cardValue = "Three";
+    case 2: return("Three");
         break;
-    case 3: cardValue = "Four";
+    case 3: return("Four");
         break;
-    case 4: cardValue = "Five";
+    case 4: return("Five");
         break;
-    case 5: cardValue = "Six";
+    case 5: return("Six");
         break;
-    case 6: cardValue = "Seven";
+    case 6: return("Seven");
         break;
-    case 7: cardValue = "Eight";
+    case 7: return("Eight");
         break;
-    case 8: cardValue = "Nine";
+    case 8: return("Nine");
         break;
-    case 9: cardValue = "Ten";
+    case 9: return("Ten");
         break;
-    case 10: cardValue = "Jack";
+    case 10: return("Jack");
         break;
-    case 11: cardValue = "Queen";
+    case 11: return("Queen");
         break;
-    case 12: cardValue = "King";
+    case 12: return("King");
         break;
-    default: cardValue = "ERROR";
+    default: return("ERROR");
         break;
     }
-    return cardValue;
 }
 
 std::string card::translateSuit()
 {
-    std::string cardValue;
-
     switch (suit) {
-    case 0: cardValue = "Club";
+    case 0: return("Club");
         break;
-    case 1: cardValue = "Diamond";
+    case 1: return("Diamond");
         break;
-    case 2: cardValue = "Heart";
+    case 2: return("Heart");
         break;
-    case 3: cardValue = "Spade";
+    case 3: return("Spade");
         break;
-    default: cardValue = "ERROR";
+    default: return("ERROR");
         break;
     }
-    return cardValue;
 }
