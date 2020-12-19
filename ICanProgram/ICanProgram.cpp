@@ -37,11 +37,28 @@ int main()
     shuffle(deck.begin(), deck.end(), std::default_random_engine(seed)); //shuffling deck
 
 
-    cout << "\n";
+    cout << "\n" << deck.size() << "\n\n";
     for (int i = 0; i < 52; i++)
     {
         cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
     }
+
+    card testcard = deck.back();
+    deck.pop_back();
+    card testcard2 = deck[1];
+    deck.pop_back();
+    //TODO make hand class
+    //seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
+
+    //shuffle(deck.begin(), deck.end(), std::default_random_engine(seed)); //shuffling deck
+
+
+    cout << "\n" << deck.size() << "\n\n";
+    for (int i = 0; i < deck.size(); i++)
+    {
+        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
+    }
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
