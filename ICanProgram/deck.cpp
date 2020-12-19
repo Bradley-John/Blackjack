@@ -4,3 +4,8 @@ void deck::shuffle()
 {
 
 }
+
+void deck::insert()
+{
+
+}

@@ -3,38 +3,44 @@
 
 #include <iostream>
 #include <string>
-#include <stack>
+#include <vector>
+#include <algorithm>        //std::shuffle
+#include <random>           //std::default_random_engine
+#include <chrono>           //std::chrono::system_clock
+
 #include "card.h"
 
 using std::cout;
-using std::cin;
+using std::cin;             //I just don't like typing std:: on these, no reason for it
 
 int main()
 {
-
-    //cout << "Type\n";
-    //cin >> input;
-    //cout << "\n" << input;
-
-    //value tester;
-
-    std::stack<card> deck;
+    std::vector<card> deck;
 
     for (int suit = 0; suit < 4; suit++)
     {
         for (int value = 0; value < 13; value++)
         {
             card cardTest(value, suit);
-            deck.push(cardTest);
-            //cout << value << " " << suit << "\n";
-            //cout << cardTest.translateValue() << " " << cardTest.translateSuit() << "\n";
+            deck.push_back(cardTest);
         }
     }
 
+
     for (int i = 0; i < 52; i++)
     {
-        cout << deck.top().translateValue() << " " << deck.top().translateSuit() << "\n";
-        deck.pop();
+        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
+    }
+
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
+
+    shuffle(deck.begin(), deck.end(), std::default_random_engine(seed)); //shuffling deck
+
+
+    cout << "\n";
+    for (int i = 0; i < 52; i++)
+    {
+        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
     }
 }
 

@@ -3,6 +3,6 @@ class deck
 {
 	int cards = 52;
 	void shuffle();
-
+	void insert();
 };
 
