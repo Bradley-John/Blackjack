@@ -1,5 +1,11 @@
 #include "card.h"
 
+card::card()
+{
+    value = static_cast<enum value>(-1);
+    suit = static_cast<enum suit>(-1);
+}
+
 card::card(int inValue, int inSuit)
 {
     value = static_cast<enum value>(inValue);

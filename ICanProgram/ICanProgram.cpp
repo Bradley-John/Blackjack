@@ -9,6 +9,7 @@
 #include <chrono>           //std::chrono::system_clock
 
 #include "card.h"
+#include "hand.h"
 
 using std::cout;
 using std::cin;             //I just don't like typing std:: on these, no reason for it
