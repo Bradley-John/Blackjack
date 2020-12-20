@@ -2,32 +2,36 @@
 
 hand::hand(card cardToAdd)
 {
-	hand2[0] = cardToAdd;
+	handArray[0] = cardToAdd;
+	size = 1;
 }
 
 hand::~hand() 
 { 
-	delete[] hand2; 
+	delete[] handArray;
 }
 
 
 card* hand::getHand() 
 { 
-	return hand2; 
+	return handArray;
 }
 
 void hand::addCard(card cardToAdd) 
 { 
-	//hand2[hand2.end()] = cardToAdd; 
+	handArray[size] = cardToAdd;
+	//necessary to add scenario if we breach max card size?
 }
 
 
 int hand::handTotal()
 {
-	/*for (int i = 0; i < hand.size(); i++)
-	{
+	int tempTotal = 0;
 
-	}*/
+	for (int i = 0; i < size; i++)
+	{
+		tempTotal += handArray[size].getValue();
+	}
 }
 
 

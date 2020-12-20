@@ -12,6 +12,7 @@ public:
 
 	int handTotal();
 private:
-	card hand2[11];
+	card handArray[11];
+	int size = 0;
 };
 

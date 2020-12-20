@@ -12,6 +12,8 @@ public:
     std::string translateValue();
     std::string translateSuit();
 
+    int getValue();
+
 private:
     value value;
     suit suit;

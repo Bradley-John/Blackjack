@@ -61,3 +61,17 @@ std::string card::translateSuit()
         break;
     }
 }
+
+int card::getValue()
+{
+    if (static_cast<int>(value) < 10)
+    {
+        return static_cast<int>(value);
+    }
+
+    else
+    {
+        return 10;
+    }
+    //add another elseif for errors?
+}
