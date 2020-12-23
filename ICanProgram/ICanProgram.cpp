@@ -3,10 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>        //std::shuffle
-#include <random>           //std::default_random_engine
-#include <chrono>           //std::chrono::system_clock
 
 #include "card.h"
 #include "hand.h"
@@ -19,17 +15,6 @@ using std::cin;             //I just don't like typing std:: on these, no reason
 int main()
 {
     deck currentDeck;
-
-    /*
-    for (int suit = 0; suit < 4; suit++)
-    {
-        for (int value = 0; value < 13; value++)
-        {
-            card cardTest(value, suit);
-            deck.push_back(cardTest);
-        }
-    }*/
-
 
     for (int i = 0; i < 52; i++)
     {
@@ -44,23 +29,6 @@ int main()
         cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
     }
 
-    /*
-    card testcard = deck.back();
-    deck.pop_back();
-    card testcard2 = deck[1];
-    deck.pop_back();
-    //TODO make hand class
-    //seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
-
-    //shuffle(deck.begin(), deck.end(), std::default_random_engine(seed)); //shuffling deck
-
-
-    cout << "\n" << deck.size() << "\n\n";
-    for (int i = 0; i < deck.size(); i++)
-    {
-        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
-    }
-    */
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
