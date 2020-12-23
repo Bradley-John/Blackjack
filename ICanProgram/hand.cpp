@@ -1,5 +1,10 @@
 #include "hand.h"
 
+hand::hand()
+{
+	size = 0;
+}
+
 hand::hand(card cardToAdd)
 {
 	handArray[0] = cardToAdd;
@@ -35,4 +40,8 @@ int hand::handTotal()
 	return tempTotal;
 }
 
+card hand::cardAtPos(int pos)
+{
+	return(handArray[pos]);
+}
 

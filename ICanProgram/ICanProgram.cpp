@@ -29,6 +29,14 @@ int main()
         cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
     }
 
+    hand currentHand;
+    currentHand.addCard(currentDeck.remove());
+    currentHand.addCard(currentDeck.remove());
+
+    for (int i = 0; i < 2; i++)
+    {
+
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
