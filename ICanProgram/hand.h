@@ -1,6 +1,6 @@
 #pragma once
 #include "card.h"
-#include <array>
+
 class hand
 {
 public:

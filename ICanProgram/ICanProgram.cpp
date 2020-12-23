@@ -7,7 +7,7 @@
 #include "card.h"
 #include "hand.h"
 #include "deck.h"
-
+#include "blackjack.h"
 
 using std::cout;
 using std::cin;             //I just don't like typing std:: on these, no reason for it

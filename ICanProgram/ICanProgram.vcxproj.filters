@@ -27,6 +27,9 @@
     <ClCompile Include="hand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="blackjack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="deck.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="blackjack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
