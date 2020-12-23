@@ -2,7 +2,6 @@
 
 hand::hand()
 {
-	size = 0;
 }
 
 hand::hand(card cardToAdd)
@@ -10,12 +9,6 @@ hand::hand(card cardToAdd)
 	handArray[0] = cardToAdd;
 	size = 1;
 }
-
-hand::~hand() 
-{ 
-	delete[] &handArray;
-}
-
 
 card* hand::getHand() 
 { 
@@ -25,6 +18,7 @@ card* hand::getHand()
 void hand::addCard(card cardToAdd) 
 { 
 	handArray[size] = cardToAdd;
+	size++;
 	//necessary to add scenario if we breach max card size?
 }
 

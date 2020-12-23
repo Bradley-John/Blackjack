@@ -6,7 +6,6 @@ class hand
 public:
 	hand();
 	hand(card cardToAdd);
-	~hand();
 
 	card* getHand();
 	void addCard(card cardToAdd);

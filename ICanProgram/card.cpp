@@ -66,7 +66,7 @@ int card::getValue()
 {
     if (static_cast<int>(value) < 10)
     {
-        return static_cast<int>(value);
+        return (static_cast<int>(value) + 1);
     }
 
     else

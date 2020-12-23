@@ -35,8 +35,23 @@ int main()
 
     for (int i = 0; i < 2; i++)
     {
-
+        cout << "\n" << currentHand.cardAtPos(i).translateValue() << " " << currentHand.cardAtPos(i).translateSuit() << " " << currentHand.cardAtPos(i).getValue() << "\n";
     }
+
+    cout << "\n";
+
+    for (int i = 0; i <50; i++)
+    {
+        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
+    }
+
+    cout << "\n";
+
+    for (int i = 0; i < 52; i++)
+    {
+        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
+    }
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
