@@ -3,7 +3,7 @@
 #include <algorithm>        //std::shuffle
 #include <random>           //std::default_random_engine
 #include <chrono>           //std::chrono::system_clock
-#include <array>
+#include <vector>
 
 class deck
 {
@@ -14,11 +14,11 @@ public:
 	~deck();
 
 	void shuffle();
-	void insert();
+	void insert(card cardToInsert);
 	void remove();
 
 private:
-	int size = 0;
-	std::array<card,52> deckArray;
+	const int maxSize = 52;
+	std::vector<card> deckVector;
 };
 

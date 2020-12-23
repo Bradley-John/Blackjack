@@ -7,8 +7,7 @@ deck::deck()
         for (int value = 0; value < 13; value++)
         {
             card cardTest(value, suit);
-            deckArray[size] = (cardTest);
-            size++;
+            deckArray.push_back(cardTest);
         }
     }
 }
@@ -27,7 +26,7 @@ void deck::shuffle()
 
 }
 
-void deck::insert()
+void deck::insert(card cardToInsert)
 {
 
 }
