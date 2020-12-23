@@ -16,6 +16,7 @@ public:
 	void shuffle();
 	void insert(card cardToInsert);
 	card remove();
+	card cardAtPos(int pos);
 
 private:
 	std::vector<card> deckVector;

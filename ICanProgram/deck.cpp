@@ -15,7 +15,7 @@ deck::deck()
 
 deck::~deck()
 {
-	delete[] &deckArray;
+    deckVector.erase(deckVector.begin(), deckVector.end());
 }
 
 
@@ -36,4 +36,9 @@ card deck::remove()
     card removedCard = deckVector.back();
     deckVector.pop_back();
     return(removedCard);
+}
+
+card deck::cardAtPos(int pos)
+{
+    return(deckVector[pos]);
 }

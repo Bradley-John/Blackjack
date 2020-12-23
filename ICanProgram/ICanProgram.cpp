@@ -10,14 +10,17 @@
 
 #include "card.h"
 #include "hand.h"
+#include "deck.h"
+
 
 using std::cout;
 using std::cin;             //I just don't like typing std:: on these, no reason for it
 
 int main()
 {
-    std::vector<card> deck;
+    deck currentDeck;
 
+    /*
     for (int suit = 0; suit < 4; suit++)
     {
         for (int value = 0; value < 13; value++)
@@ -25,25 +28,23 @@ int main()
             card cardTest(value, suit);
             deck.push_back(cardTest);
         }
-    }
+    }*/
 
 
     for (int i = 0; i < 52; i++)
     {
-        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
+        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
     }
 
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
+    cout << "\n";
+    currentDeck.shuffle();
 
-    shuffle(deck.begin(), deck.end(), std::default_random_engine(seed)); //shuffling deck
-
-
-    cout << "\n" << deck.size() << "\n\n";
     for (int i = 0; i < 52; i++)
     {
-        cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
+        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
     }
 
+    /*
     card testcard = deck.back();
     deck.pop_back();
     card testcard2 = deck[1];
@@ -59,7 +60,7 @@ int main()
     {
         cout << deck[i].translateValue() << " " << deck[i].translateSuit() << "\n";
     }
-
+    */
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
