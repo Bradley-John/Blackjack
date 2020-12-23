@@ -8,7 +8,7 @@ hand::hand(card cardToAdd)
 
 hand::~hand() 
 { 
-	delete[] handArray;
+	delete[] &handArray;
 }
 
 
@@ -32,6 +32,7 @@ int hand::handTotal()
 	{
 		tempTotal += handArray[size].getValue();
 	}
+	return tempTotal;
 }
 
 
