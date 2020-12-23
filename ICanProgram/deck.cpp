@@ -7,7 +7,7 @@ deck::deck()
         for (int value = 0; value < 13; value++)
         {
             card cardTest(value, suit);
-            deckArray.push_back(cardTest);
+            deckVector.push_back(cardTest);
         }
     }
 }
@@ -22,16 +22,18 @@ deck::~deck()
 void deck::shuffle()
 {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
-    std::shuffle(deckArray.begin(), deckArray.end(), std::default_random_engine(seed)); //shuffling deck
+    std::shuffle(deckVector.begin(), deckVector.end(), std::default_random_engine(seed)); //shuffling deck
 
 }
 
 void deck::insert(card cardToInsert)
 {
-
+    deckVector.push_back(cardToInsert);
 }
 
-void deck::remove()
+card deck::remove()
 {
-
+    card removedCard = deckVector.back();
+    deckVector.pop_back();
+    return(removedCard);
 }

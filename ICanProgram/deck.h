@@ -15,10 +15,9 @@ public:
 
 	void shuffle();
 	void insert(card cardToInsert);
-	void remove();
+	card remove();
 
 private:
-	const int maxSize = 52;
 	std::vector<card> deckVector;
 };
 
