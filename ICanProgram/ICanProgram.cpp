@@ -15,7 +15,30 @@ using std::cin;             //I just don't like typing std:: on these, no reason
 int main()
 {
     deck currentDeck;
+    hand dealerHand;
+    hand playerHand;
 
+    currentDeck.shuffle();
+
+    playerHand.addCard(currentDeck.remove());
+    dealerHand.addCard(currentDeck.remove());
+    playerHand.addCard(currentDeck.remove());
+    dealerHand.addCard(currentDeck.remove());
+
+    //check if either has blackjack
+        ////win for player/dealer if so, tie if both
+    //display one card of dealer
+    //display both for player
+    //give player option to hit/stand
+        ////if stand, dealer reveal second card
+            //////dealer hit until X amount, reveal 1 card at time per hit. hit until bust or hit X amount
+        ////if hit, player draws and reveals another card for themselves, add new total and determine if blackjack or bust
+            //////player gets hit/stand option again until either bust or stand
+    //compare values and determine winner
+    //add points bet
+
+
+    /*
     for (int i = 0; i < 52; i++)
     {
         cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
@@ -52,7 +75,7 @@ int main()
     for (int i = 0; i < 52; i++)
     {
         cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
-    }
+    }*/
 
 }
 
