@@ -46,6 +46,8 @@ int main()
     }
 
     cout << "\n";
+    currentDeck.insert(currentHand.remove());
+    currentDeck.insert(currentHand.remove());
 
     for (int i = 0; i < 52; i++)
     {

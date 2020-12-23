@@ -1,20 +1,22 @@
 #pragma once
 #include "card.h"
+#include <vector>
 
 class hand
 {
 public:
 	hand();
 	hand(card cardToAdd);
+	~hand();
 
-	card* getHand();
 	void addCard(card cardToAdd);
 	int handTotal();
 
+	card remove();
 	card cardAtPos(int pos);
 
 private:
-	card handArray[11];
-	int size = 0;
+	std::vector<card> handVector;
+	const int maxSize = 11;
 };
 

@@ -6,19 +6,17 @@ hand::hand()
 
 hand::hand(card cardToAdd)
 {
-	handArray[0] = cardToAdd;
-	size = 1;
+	handVector.push_back(cardToAdd);
 }
 
-card* hand::getHand() 
-{ 
-	return handArray;
+hand::~hand()
+{
+	handVector.erase(handVector.begin(), handVector.end());
 }
 
 void hand::addCard(card cardToAdd) 
 { 
-	handArray[size] = cardToAdd;
-	size++;
+	handVector.push_back(cardToAdd);
 	//necessary to add scenario if we breach max card size?
 }
 
@@ -27,15 +25,21 @@ int hand::handTotal()
 {
 	int tempTotal = 0;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < handVector.size(); i++)
 	{
-		tempTotal += handArray[size].getValue();
+		tempTotal += handVector[i].getValue();
 	}
 	return tempTotal;
 }
 
 card hand::cardAtPos(int pos)
 {
-	return(handArray[pos]);
+	return(handVector[pos]);
 }
 
+card hand::remove()
+{
+	card removedCard = handVector.back();
+	handVector.pop_back();
+	return(removedCard);
+}
