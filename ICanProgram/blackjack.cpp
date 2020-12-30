@@ -81,6 +81,7 @@ void blackjack::displayHand()
 		{
 			cout << dealerHand.cardAtPos(i).translateValue() << " of " << dealerHand.cardAtPos(i).translateSuit() << "\n";
 		}
+		cout << dealerHand.handTotal() << "\n";
 	}
 
 	cout << "You have:\n";
@@ -88,6 +89,7 @@ void blackjack::displayHand()
 	{
 		cout << playerHand.cardAtPos(i).translateValue() << " of " << playerHand.cardAtPos(i).translateSuit() << "\n";
 	}
+	cout << playerHand.handTotal() << "\n";
 }
 
 void blackjack::hitOrStand()
