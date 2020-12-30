@@ -53,10 +53,22 @@ int main()
         option = tolower(option);
     }
     
-    if (option == 's')
+    if (option == 'h')
     {
         playerHand.addCard(currentDeck.remove());
     }
+
+    else if (option == 's')
+    {
+
+    }
+
+    else
+    {
+        cout << "error";
+    }
+
+    cout << playerHand.handTotal();
     //check if either has blackjack
         ////win for player/dealer if so, tie if both
     //display one card of dealer
