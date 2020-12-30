@@ -28,6 +28,10 @@ int hand::handTotal()
 	for (int i = 0; i < handVector.size(); i++)
 	{
 		tempTotal += handVector[i].getValue();
+		if ((handVector[i].getValue() == 1) && ((tempTotal + 10) < 21))
+		{
+			tempTotal += 10;
+		}
 	}
 	return tempTotal;
 }
