@@ -13,8 +13,30 @@ blackjack::blackjack()
 int blackjack::play()
 {
 	displayHand();
-	hitOrStand();
+	dealer21 = checkFor21(dealerHand);
+	player21 = checkFor21(playerHand);
 
+	while (!playerStand && !player21 && !dealer21 && !playerBust)
+	{
+		hitOrStand();
+		displayHand();
+	}
+
+	dealerHit();
+	dealer21 = checkFor21(dealerHand);
+
+	if (playerHand.handTotal() > dealerHand.handTotal())
+	{
+		cout << "\nYou win!\n";
+	}
+	else
+	{
+		cout << "\nYou lose!\n";
+	}
+
+	returnCards(playerHand);
+	returnCards(dealerHand);
+	resetFlags();
 	return 0;
 }
 
@@ -31,8 +53,22 @@ bool blackjack::checkFor21(hand handToCheck)
 	}
 }
 
+bool blackjack::checkForBust(hand handToCheck)
+{
+	if (handToCheck.handTotal() > 21)
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
+}
+
 void blackjack::displayHand()
 {
+	cout << "\n";
 	if (!dealerReveal)
 	{
 		cout << "The dealer has:\n" << dealerHand.cardAtPos(0).translateValue() << " of " << dealerHand.cardAtPos(0).translateSuit() << "\n";
@@ -68,5 +104,45 @@ void blackjack::hitOrStand()
 	{
 		playerHand.addCard(currentDeck.remove());
 		player21 = checkFor21(playerHand);
+		playerBust = checkForBust(playerHand);
 	}
+
+	else if (option == 's')
+	{
+		playerStand = true;
+	}
+	option = 'a';
+}
+
+void blackjack::dealerHit()
+{
+	dealerReveal = true;
+	displayHand();
+
+	while (dealerHand.handTotal() < dealerLimit)
+	{
+		dealerHand.addCard(currentDeck.remove());
+		displayHand();
+	}
+}
+
+void blackjack::returnCards(hand handToReturn)
+{
+	int tempSize = handToReturn.handSize();
+	for (int i = 0; i < tempSize; i++)
+	{
+		currentDeck.insert(handToReturn.remove());
+	}
+}
+
+void blackjack::resetFlags()
+{
+	char option = 'a';
+	bool dealerReveal = false;
+	bool player21 = false;
+	bool dealer21 = false;
+	bool playerStand = false;
+	bool playerBust = false;
+	bool dealerBust = false;
+	int dealerLimit = 17;
 }

@@ -19,10 +19,17 @@ public:
 
 	bool checkFor21(hand handToCheck);
 
+	bool checkForBust(hand handToCheck);
+
 	void displayHand();
 
 	void hitOrStand();
 
+	void dealerHit();
+
+	void returnCards(hand handToReturn);
+
+	void resetFlags();
 
 private:
 	deck currentDeck;
@@ -32,5 +39,9 @@ private:
 	bool dealerReveal = false;
 	bool player21 = false;
 	bool dealer21 = false;
+	bool playerStand = false;
+	bool playerBust = false;
+	bool dealerBust = false;
+	int dealerLimit = 17;
 };
 
