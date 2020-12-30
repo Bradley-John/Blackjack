@@ -18,6 +18,8 @@ int main()
     hand dealerHand;
     hand playerHand;
 
+    char option = 'a';
+
     currentDeck.shuffle();
 
     playerHand.addCard(currentDeck.remove());
@@ -27,12 +29,34 @@ int main()
     //show 1 dealer card
     //show 2 player card
 
-    cout << "\nYou have:\n";
+    cout << "The dealer has:\n";
+    for (int i = 0; i < dealerHand.handSize(); i++)
+    {
+        cout << dealerHand.cardAtPos(i).translateValue() << " of " << dealerHand.cardAtPos(i).translateSuit() << "\n";
+    }
+    cout << "\n";
+    //cout << "The dealer has:\n" << dealerHand.cardAtPos(0).translateValue() << " of " << dealerHand.cardAtPos(0).translateSuit() << "\n";
+    //cout << "One unknown card\n\n";
+
+    cout << "You have:\n";
     for (int i = 0; i < playerHand.handSize(); i++)
     {
         cout << playerHand.cardAtPos(i).translateValue() << " of " << playerHand.cardAtPos(i).translateSuit() << "\n";
     }
+
     
+    cout << "Hit - H\nStand - S\n";
+    
+    while (option != 'h' && option != 's')
+    {
+        cin >> option;
+        option = tolower(option);
+    }
+    
+    if (option == 's')
+    {
+        playerHand.addCard(currentDeck.remove());
+    }
     //check if either has blackjack
         ////win for player/dealer if so, tie if both
     //display one card of dealer
