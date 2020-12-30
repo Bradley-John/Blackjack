@@ -24,6 +24,7 @@ void hand::addCard(card cardToAdd)
 int hand::handTotal()
 {
 	int tempTotal = 0;
+	bool aceTen = false;
 
 	for (int i = 0; i < handVector.size(); i++)
 	{
@@ -31,6 +32,11 @@ int hand::handTotal()
 		if ((handVector[i].getValue() == 1) && ((tempTotal + 10) < 21))
 		{
 			tempTotal += 10;
+			aceTen = true;
+		}
+		if ((tempTotal > 21) && aceTen)
+		{
+			tempTotal -= 10;
 		}
 	}
 	return tempTotal;
