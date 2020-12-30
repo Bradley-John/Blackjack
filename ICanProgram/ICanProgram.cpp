@@ -14,61 +14,12 @@ using std::cin;             //I just don't like typing std:: on these, no reason
 
 int main()
 {
-    deck currentDeck;
-    hand dealerHand;
-    hand playerHand;
+    blackjack game;
 
-    char option = 'a';
+    int test = 0;
 
-    currentDeck.shuffle();
+    test = game.play();
 
-    playerHand.addCard(currentDeck.remove());
-    dealerHand.addCard(currentDeck.remove());
-    playerHand.addCard(currentDeck.remove());
-    dealerHand.addCard(currentDeck.remove());
-    //show 1 dealer card
-    //show 2 player card
-
-    cout << "The dealer has:\n";
-    for (int i = 0; i < dealerHand.handSize(); i++)
-    {
-        cout << dealerHand.cardAtPos(i).translateValue() << " of " << dealerHand.cardAtPos(i).translateSuit() << "\n";
-    }
-    cout << "\n";
-    //cout << "The dealer has:\n" << dealerHand.cardAtPos(0).translateValue() << " of " << dealerHand.cardAtPos(0).translateSuit() << "\n";
-    //cout << "One unknown card\n\n";
-
-    cout << "You have:\n";
-    for (int i = 0; i < playerHand.handSize(); i++)
-    {
-        cout << playerHand.cardAtPos(i).translateValue() << " of " << playerHand.cardAtPos(i).translateSuit() << "\n";
-    }
-
-    
-    cout << "Hit - H\nStand - S\n";
-    
-    while (option != 'h' && option != 's')
-    {
-        cin >> option;
-        option = tolower(option);
-    }
-    
-    if (option == 'h')
-    {
-        playerHand.addCard(currentDeck.remove());
-    }
-
-    else if (option == 's')
-    {
-
-    }
-
-    else
-    {
-        cout << "error";
-    }
-
-    cout << playerHand.handTotal();
     //check if either has blackjack
         ////win for player/dealer if so, tie if both
     //display one card of dealer
@@ -80,47 +31,6 @@ int main()
             //////player gets hit/stand option again until either bust or stand
     //compare values and determine winner
     //add points bet
-
-
-    /*
-    for (int i = 0; i < 52; i++)
-    {
-        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
-    }
-
-    cout << "\n";
-    currentDeck.shuffle();
-
-    for (int i = 0; i < 52; i++)
-    {
-        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
-    }
-
-    hand currentHand;
-    currentHand.addCard(currentDeck.remove());
-    currentHand.addCard(currentDeck.remove());
-
-    for (int i = 0; i < 2; i++)
-    {
-        cout << "\n" << currentHand.cardAtPos(i).translateValue() << " " << currentHand.cardAtPos(i).translateSuit() << " " << currentHand.cardAtPos(i).getValue() << "\n";
-    }
-
-    cout << "\n";
-
-    for (int i = 0; i <50; i++)
-    {
-        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
-    }
-
-    cout << "\n";
-    currentDeck.insert(currentHand.remove());
-    currentDeck.insert(currentHand.remove());
-
-    for (int i = 0; i < 52; i++)
-    {
-        cout << currentDeck.cardAtPos(i).translateValue() << " " << currentDeck.cardAtPos(i).translateSuit() << "\n";
-    }*/
-
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
