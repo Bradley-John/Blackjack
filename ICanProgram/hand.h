@@ -11,6 +11,7 @@ public:
 
 	void addCard(card cardToAdd);
 	int handTotal();
+	int handSize();
 
 	card remove();
 	card cardAtPos(int pos);

@@ -32,6 +32,11 @@ int hand::handTotal()
 	return tempTotal;
 }
 
+int hand::handSize()
+{
+	return(handVector.size());
+}
+
 card hand::cardAtPos(int pos)
 {
 	return(handVector[pos]);

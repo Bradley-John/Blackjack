@@ -24,7 +24,15 @@ int main()
     dealerHand.addCard(currentDeck.remove());
     playerHand.addCard(currentDeck.remove());
     dealerHand.addCard(currentDeck.remove());
+    //show 1 dealer card
+    //show 2 player card
 
+    cout << "\nYou have:\n";
+    for (int i = 0; i < playerHand.handSize(); i++)
+    {
+        cout << playerHand.cardAtPos(i).translateValue() << " of " << playerHand.cardAtPos(i).translateSuit() << "\n";
+    }
+    
     //check if either has blackjack
         ////win for player/dealer if so, tie if both
     //display one card of dealer

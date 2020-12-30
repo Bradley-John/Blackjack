@@ -49,13 +49,13 @@ std::string card::translateValue()
 std::string card::translateSuit()
 {
     switch (suit) {
-    case 0: return("Club");
+    case 0: return("Clubs");
         break;
-    case 1: return("Diamond");
+    case 1: return("Diamonds");
         break;
-    case 2: return("Heart");
+    case 2: return("Hearts");
         break;
-    case 3: return("Spade");
+    case 3: return("Spades");
         break;
     default: return("ERROR");
         break;
