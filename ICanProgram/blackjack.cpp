@@ -25,7 +25,7 @@ int blackjack::play()
 	dealerHit();
 	dealer21 = checkFor21(dealerHand);
 
-	if (playerHand.handTotal() > dealerHand.handTotal())
+	if ((playerHand.handTotal() > dealerHand.handTotal()) && (dealerHand.handTotal() <= 21))
 	{
 		cout << "\nYou win!\n";
 	}
