@@ -1,6 +1,6 @@
 #include "blackjack.h"
 
-blackjack::blackjack()
+void blackjack::shuffleDeal()
 {
 	currentDeck.shuffle();
 
@@ -12,6 +12,10 @@ blackjack::blackjack()
 
 int blackjack::play()
 {
+	char continueChar = 'o';
+
+	shuffleDeal();
+
 	displayHand();
 	dealer21 = checkFor21(dealerHand);
 	player21 = checkFor21(playerHand);
@@ -19,13 +23,22 @@ int blackjack::play()
 	while (!playerStand && !player21 && !dealer21 && !playerBust)
 	{
 		hitOrStand();
+		system("CLS");
 		displayHand();
 	}
 
 	dealerHit();
 	dealer21 = checkFor21(dealerHand);
 
-	if ((playerHand.handTotal() > dealerHand.handTotal()) && (dealerHand.handTotal() <= 21))
+	system("CLS");
+	displayHand();
+
+	if (playerHand.handTotal() == dealerHand.handTotal() || (dealerBust && playerBust))
+	{
+		cout << "\nYou tied!\n";
+	}
+
+	else if ((playerHand.handTotal() > dealerHand.handTotal()) && (playerHand.handTotal() <= 21)|| (dealerBust))
 	{
 		cout << "\nYou win!\n";
 	}
@@ -34,10 +47,26 @@ int blackjack::play()
 		cout << "\nYou lose!\n";
 	}
 
-	returnCards(playerHand);
-	returnCards(dealerHand);
+	returnCards();
 	resetFlags();
-	return 0;
+	
+	cout << "Continue? (y/n)";
+
+	while ((continueChar != 'y') && (continueChar != 'n'))
+	{
+		cin >> continueChar;
+		continueChar = tolower(continueChar);
+	}
+
+	if (continueChar == 'y')
+	{
+		system("CLS");
+		return 1;
+	}
+	else if (continueChar == 'n')
+	{
+		return 0;
+	}
 }
 
 bool blackjack::checkFor21(hand handToCheck)
@@ -119,32 +148,38 @@ void blackjack::hitOrStand()
 void blackjack::dealerHit()
 {
 	dealerReveal = true;
-	displayHand();
 
-	while (dealerHand.handTotal() < dealerLimit)
+	while ((dealerHand.handTotal() < dealerLimit) && (dealerHand.handTotal() < playerHand.handTotal()))
 	{
 		dealerHand.addCard(currentDeck.remove());
-		displayHand();
+		dealerBust = checkForBust(dealerHand);
 	}
 }
 
-void blackjack::returnCards(hand handToReturn)
+void blackjack::returnCards()
 {
-	int tempSize = handToReturn.handSize();
-	for (int i = 0; i < tempSize; i++)
+	int tempSizeDealer = dealerHand.handSize();
+	int tempSizePlayer = playerHand.handSize();
+
+	for (int i = 0; i < tempSizeDealer; i++)
 	{
-		currentDeck.insert(handToReturn.remove());
+		currentDeck.insert(dealerHand.remove());
+	}
+
+	for (int i = 0; i < tempSizePlayer; i++)
+	{
+		currentDeck.insert(playerHand.remove());
 	}
 }
 
 void blackjack::resetFlags()
 {
-	char option = 'a';
-	bool dealerReveal = false;
-	bool player21 = false;
-	bool dealer21 = false;
-	bool playerStand = false;
-	bool playerBust = false;
-	bool dealerBust = false;
-	int dealerLimit = 17;
+	option = 'a';
+	dealerReveal = false;
+	player21 = false;
+	dealer21 = false;
+	playerStand = false;
+	playerBust = false;
+	dealerBust = false;
+	dealerLimit = 17;
 }

@@ -13,9 +13,9 @@ using std::cin;             //I just don't like typing std:: on these, no reason
 class blackjack
 {
 public:
-	blackjack();
-
 	int play();
+private:
+	void shuffleDeal();
 
 	bool checkFor21(hand handToCheck);
 
@@ -27,11 +27,11 @@ public:
 
 	void dealerHit();
 
-	void returnCards(hand handToReturn);
+	void returnCards();
 
 	void resetFlags();
 
-private:
+
 	deck currentDeck;
 	hand dealerHand;
 	hand playerHand;

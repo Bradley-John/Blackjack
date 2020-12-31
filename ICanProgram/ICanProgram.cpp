@@ -14,11 +14,14 @@ using std::cin;             //I just don't like typing std:: on these, no reason
 
 int main()
 {
+
     blackjack game;
+    int continueInt = 1;
 
-    int test = 0;
-
-    test = game.play();
+    while (continueInt == 1)
+    {
+        continueInt = game.play();
+    }
 
     //check if either has blackjack
         ////win for player/dealer if so, tie if both
