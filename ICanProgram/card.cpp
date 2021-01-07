@@ -12,6 +12,7 @@ card::card(int inValue, int inSuit)
     suit = static_cast<enum suit>(inSuit);
 }
 
+//Returns string of the card value(Name? Not literal number value)
 std::string card::translateValue()
 {
     switch (value) {
@@ -46,6 +47,7 @@ std::string card::translateValue()
     }
 }
 
+//Returns suit of card
 std::string card::translateSuit()
 {
     switch (suit) {
@@ -62,6 +64,7 @@ std::string card::translateSuit()
     }
 }
 
+//Returns number value of card
 int card::getValue()
 {
     if (static_cast<int>(value) < 10)
@@ -73,5 +76,4 @@ int card::getValue()
     {
         return 10;
     }
-    //add another elseif for errors?
 }

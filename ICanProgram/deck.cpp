@@ -1,5 +1,6 @@
 #include "deck.h"
 
+//Initializes with a full sized/4 suit,52 card deck
 deck::deck()
 {
     for (int suit = 0; suit < 4; suit++)
@@ -18,7 +19,7 @@ deck::~deck()
     deckVector.erase(deckVector.begin(), deckVector.end());
 }
 
-
+//Uses std::shuffle to shuffle the deck vector. New seed each time it is called since we use epoch time for the seed
 void deck::shuffle()
 {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); //seed for rng
@@ -31,6 +32,7 @@ void deck::insert(card cardToInsert)
     deckVector.push_back(cardToInsert);
 }
 
+//Remove and return the card from back of the vector
 card deck::remove()
 {
     card removedCard = deckVector.back();
@@ -38,6 +40,7 @@ card deck::remove()
     return(removedCard);
 }
 
+//Returns specific card in deck at given position
 card deck::cardAtPos(int pos)
 {
     return(deckVector[pos]);

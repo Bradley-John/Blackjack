@@ -9,11 +9,11 @@
 #include "deck.h"
 #include "blackjack.h"
 
-using std::cout;
-using std::cin;             //I just don't like typing std:: on these, no reason for it
-
 int main()
 {
+    //Current TODO:
+    //Standardize comments
+    //Add actual bet/gamble system
 
     blackjack game;
     int continueInt = 1;
